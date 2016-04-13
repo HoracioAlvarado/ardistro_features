@@ -22,7 +22,6 @@ function ar_distro_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Listado de Contenido';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -38,6 +37,7 @@ function ar_distro_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Campo: Contenido: Título */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -64,7 +64,7 @@ function ar_distro_views_default_views() {
   $handler->display->display_options['fields']['field_featured_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_featured_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_featured_image']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'medium',
     'image_link' => '',
   );
   /* Sort criterion: Contenido: Post date */
@@ -112,7 +112,6 @@ function ar_distro_views_default_views() {
   $handler = $view->new_display('block', 'General', 'listado_de_contenido_default');
   $translatables['listado_de_contenido'] = array(
     t('Master'),
-    t('Listado de Contenido'),
     t('more'),
     t('Apply'),
     t('Reiniciar'),
